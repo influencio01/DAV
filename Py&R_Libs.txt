@@ -1,0 +1,71 @@
+Python Libraries for Data Analysis and
+Visualization
+Python libraries are collections of pre-written code that provide specific functionality, making it easier
+to perform various tasks without writing code from scratch. Below are 10 popular Python libraries for
+data analysis and visualization, along with small examples:
+1. NumPy: Used for numerical computations and handling arrays.
+import numpy as np
+arr = np.array([1, 2, 3])
+print(arr.mean())
+2. Pandas: Provides data manipulation and analysis tools.
+import pandas as pd
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+print(df.describe())
+3. Matplotlib: A plotting library for creating static, interactive, and animated visualizations.
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.show()
+4. Seaborn: Built on top of Matplotlib, it provides a high-level interface for drawing attractive
+statistical graphics.
+import seaborn as sns
+sns.histplot([1, 2, 2, 3, 3, 3])
+5. Plotly: An interactive graphing library for creating dynamic visualizations.
+import plotly.express as px
+fig = px.scatter(x=[1, 2, 3], y=[4, 5, 6])
+fig.show()
+6. Bokeh: A library for creating interactive and scalable visualizations for modern web browsers.
+from bokeh.plotting import figure, show
+p = figure()
+p.line([1, 2, 3], [4, 5, 6])
+show(p)
+7. Scikit-learn: A machine learning library that also includes tools for data preprocessing and
+visualization.
+from sklearn.datasets import load_iris
+data = load_iris()
+print(data.feature_names)
+8. Altair: A declarative statistical visualization library based on Vega and Vega-Lite.
+import altair as alt
+chart = alt.Chart({'x': [1, 2, 3], 'y': [4, 5, 6]}).mark_line().encode(x='x', y='y')
+chart.show()
+9. Statsmodels: Provides tools for statistical modeling and visualization.
+import statsmodels.api as sm
+print(sm.datasets.get_rdataset("mtcars").data.head())
+10. Geopandas: Extends Pandas to include spatial operations and visualizations for geospatial data.
+import geopandas as gpd
+print(gpd.datasets.available)
+Examples of R Libraries in One Line Code
+with Explanations
+1. ggplot2: A powerful library for creating complex and customizable visualizations based on the
+grammar of graphics.
+Example: ggplot(data, aes(x, y)) + geom_point()
+2. dplyr: Provides a set of functions for data manipulation, such as filtering, selecting, and
+summarizing data.
+Example: data %>% filter(condition) %>% summarize(mean_value = mean(column))
+3. tidyr: Helps in tidying and reshaping data, making it easier to work with messy datasets.
+Example: data %>% pivot_longer(cols, names_to = "name", values_to = "value")
+4. shiny: Used for building interactive web applications directly from R.
+Example: shinyApp(ui = fluidPage(), server = function(input, output) {})
+5. plotly: Enables interactive visualizations and integrates seamlessly with ggplot2.
+Example: plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'lines')
+6. data.table: A fast and efficient library for data manipulation, especially useful for large datasets.
+Example: data.table(data)[, .(mean_value = mean(column)), by = group]
+7. lubridate: Simplifies working with dates and times, providing functions to parse, manipulate, and
+perform calculations on date-time objects.
+Example: ymd("2023-01-01") + days(10)
+8. readr: Provides tools for reading rectangular data (like CSV files) quickly and efficiently.
+Example: read_csv("file.csv")
+9. stringr: Simplifies string manipulation and text processing with a consistent interface.
+Example: str_detect(string, "pattern")
+10. caret: A comprehensive library for machine learning and data preprocessing, providing tools for
+model training and evaluation.
+Example: train(model, data = training_data, method = "method")
