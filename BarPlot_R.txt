@@ -1,0 +1,35 @@
+Sample Dataset:
+We'll use a sample dataset of product sales:
+
+# Sample data
+
+product <- c("A", "B", "C", "D")
+sales <- c(150, 200, 130, 90)
+data <- data.frame(product, sales)
+
+1. Base R Bar Plot
+
+barplot(data$sales, names.arg = data$product,
+        col = "skyblue", main = "Product Sales (Base R)",
+        xlab = "Product", ylab = "Sales")
+
+2. Bar Plot using ggplot2
+
+library(ggplot2)
+
+ggplot(data, aes(x = product, y = sales, fill = product)) +
+  geom_bar(stat = "identity") +
+  ggtitle("Product Sales (ggplot2)") +
+  xlab("Product") + ylab("Sales") +
+  theme_minimal()
+
+3. Interactive Bar Plot using plotly
+
+library(plotly)
+
+fig <- plot_ly(data, x = ~product, y = ~sales, type = 'bar',
+               marker = list(color = 'lightgreen'))
+fig <- fig %>% layout(title = "Product Sales (plotly)",
+                      xaxis = list(title = "Product"),
+                      yaxis = list(title = "Sales"))
+fig
