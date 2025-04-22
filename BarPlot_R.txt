@@ -23,13 +23,14 @@ ggplot(data, aes(x = product, y = sales, fill = product)) +
   xlab("Product") + ylab("Sales") +
   theme_minimal()
 
-3. Interactive Bar Plot using plotly
+3. Interactive Bar Plot using ggplot
 
-library(plotly)
+install.packages("ggplot2")
+library(ggplot2)
 
-fig <- plot_ly(data, x = ~product, y = ~sales, type = 'bar',
-               marker = list(color = 'lightgreen'))
-fig <- fig %>% layout(title = "Product Sales (plotly)",
-                      xaxis = list(title = "Product"),
-                      yaxis = list(title = "Sales"))
-fig
+
+# Create bar plot
+ggplot(data, aes(x = product, y = sales, fill = product)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Product Sales (ggplot2)", x = "Product", y = "Sales") +
+  theme_minimal()
