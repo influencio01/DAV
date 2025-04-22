@@ -3,25 +3,26 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 # Load dataset
-data = pd.read_csv('weather_data.csv')  # Replace with your file name
+data = pd.read_csv('/content/Weather Data.csv')
 
-# Convert 'Date/Time' to datetime format
+# Convert to datetime
 data['Date/Time'] = pd.to_datetime(data['Date/Time'])
-
-# Set the date column as index
 data.set_index('Date/Time', inplace=True)
 
-# Plot original temperature data
+# Plot original temperature
 data['Temp_C'].plot(title='Temperature Over Time', figsize=(10, 4))
 plt.xlabel('Date')
 plt.ylabel('Temperature (°C)')
 plt.grid()
 plt.show()
 
-# Resample to daily or monthly average temperature
-monthly_data = data['Temp_C'].resample('M').mean()
+# Resample to daily average
+daily_data = data['Temp_C'].resample('D').mean()
 
-# Decompose the time series (Trend + Seasonality + Residual)
-decomposition = seasonal_decompose(monthly_data, model='additive')
+# Drop NaN values (in case any day has missing data)
+daily_data = daily_data.dropna()
+
+# Decompose with daily period (approx. monthly seasonality)
+decomposition = seasonal_decompose(daily_data, model='additive', period=30)
 decomposition.plot()
 plt.show()
