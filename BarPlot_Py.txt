@@ -1,0 +1,41 @@
+Sample Data:
+We'll use a small dataset of product sales.
+
+# Sample data
+products = ['A', 'B', 'C', 'D']
+sales = [150, 200, 130, 90]
+
+1. Using Matplotlib
+
+import matplotlib.pyplot as plt
+
+plt.bar(products, sales, color='skyblue')
+plt.title('Product Sales (Matplotlib)')
+plt.xlabel('Product')
+plt.ylabel('Sales')
+plt.grid(axis='y')
+plt.show()
+
+2. Using Seaborn
+
+import seaborn as sns
+import pandas as pd
+
+# Create DataFrame
+df = pd.DataFrame({'Product': products, 'Sales': sales})
+
+sns.barplot(data=df, x='Product', y='Sales', palette='viridis')
+plt.title('Product Sales (Seaborn)')
+plt.xlabel('Product')
+plt.ylabel('Sales')
+plt.show()
+
+3. Using Plotly (Interactive)
+
+import plotly.express as px
+
+df = pd.DataFrame({'Product': products, 'Sales': sales})
+
+fig = px.bar(df, x='Product', y='Sales', title='Product Sales (Plotly)',
+             color='Product', text='Sales')
+fig.show()
